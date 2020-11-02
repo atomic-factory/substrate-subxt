@@ -183,9 +183,10 @@ impl<T: Runtime> ClientBuilder<T> {
     }
 }
 
+#[allow(missing_docs)]
 /// Client to interface with a substrate node.
 pub struct Client<T: Runtime> {
-    rpc: Rpc<T>,
+    pub rpc: Rpc<T>,
     genesis_hash: T::Hash,
     metadata: Metadata,
     properties: SystemProperties,
