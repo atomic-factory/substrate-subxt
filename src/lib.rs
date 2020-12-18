@@ -66,7 +66,7 @@ pub use sp_version::RuntimeVersion;
 use std::marker::PhantomData;
 
 mod error;
-mod events;
+pub mod events;
 pub mod extrinsic;
 mod frame;
 mod metadata;
