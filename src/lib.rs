@@ -53,6 +53,7 @@ use codec::Decode;
 use frame_metadata::StorageEntryModifier;
 use futures::future;
 use jsonrpsee::client::Subscription;
+pub use sc_rpc_api::state::ReadProof;
 use sp_core::{
     storage::{
         StorageChangeSet,
