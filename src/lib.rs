@@ -64,6 +64,7 @@ use sp_core::{
 pub use sp_runtime::traits::SignedExtension;
 pub use sp_version::RuntimeVersion;
 use std::marker::PhantomData;
+use frame_metadata::StorageEntryModifier;
 
 mod error;
 pub mod events;
@@ -287,8 +288,7 @@ impl<T: Runtime> Client<T> {
                 data.0
             };
             Ok(Some(Decode::decode(&mut &bytes[..])?))
-        } else {
-            // null
+        } else { // null
             Ok(None)
         }
     }
@@ -314,7 +314,7 @@ impl<T: Runtime> Client<T> {
     ) -> Result<F::Returns, Error> {
         if let Some(data) = self.fetch(store, hash).await? {
             Ok(data)
-        } else {
+        } else { // null
             Ok(store.default(&self.metadata)?)
         }
     }
